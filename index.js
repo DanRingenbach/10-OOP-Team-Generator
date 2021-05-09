@@ -80,7 +80,7 @@ const promptUser =
             console.log('\n')
             promptUser();
           } else {
-            console.log(listOfTeam)
+            
             appendHTML();
 
 
@@ -114,7 +114,7 @@ appendHTML = function (answers) {
 
 
   listOfTeam.forEach((item, index) => {
-    console.log(item, index)
+    
     if (item.officeNumber) {
 
       const managerCard = `<div class="card" style="width: 18rem;">
@@ -126,10 +126,10 @@ appendHTML = function (answers) {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">${item.id}</li>
             <a class="list-group-item" href = "mailto: ${item.email}">Email</a>
-            <li class="list-group-item">${item.officeNumber}</li>
+            <li class="list-group-item">Office Number: ${item.officeNumber}</li>
           </ul>
           </div>`
-      console.log(managerCard)
+      
       HTMLBody = HTMLBody + managerCard
 
     }
@@ -147,7 +147,7 @@ appendHTML = function (answers) {
               <a class="list-group-item" href="https://github.com/${item.github}">GitHub</a>
             </ul>
             </div>`
-      console.log(engineerCard)
+      
       HTMLBody = HTMLBody + engineerCard
     }
     if (item.school) {
@@ -159,12 +159,12 @@ appendHTML = function (answers) {
               <i class="fas fa-book"></i>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">${item.id}</li>
-              <a class="list-group-item" href = "mailto: ${item.email}">Email</a>
-              <li class="list-group-item">${item.school}</li>
+              <li class="list-group-item">ID: ${item.id}</li>
+              <a class="list-group-item" href = "mailto: ${item.email}">${item.email}</a>
+              <li class="list-group-item">School: ${item.school}</li>
             </ul>
             </div>`
-      console.log(internCard)
+      
       HTMLBody = HTMLBody + internCard
     }
     fs.writeFile("index.html", HTMLHead + HTMLBody, function (err) {
